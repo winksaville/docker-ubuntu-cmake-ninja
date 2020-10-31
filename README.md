@@ -1,9 +1,42 @@
-# Dockerfile
+# Dockerfile for creating a full Ubuntu 18.04 image with cmake and Ninja
 
-[Image](https://hub.docker.com/repository/docker/winksaville/ubuntu-cmake-ninja)
-suitable for running Github Actions locally using [github.com/nektos/act](https://github.com/nektos/act).
+A [Ubuntu 18.04 Docker image](https://hub.docker.com/repository/docker/winksaville/ubuntu-cmake-ninja)
+suitable for locally running Github Actions that need cmake and ninja
+using [github.com/nektos/act](https://github.com/nektos/act).
 
 This is based on the [18.04-full image here](https://hub.docker.com/r/nektos/act-environments-ubuntu/tags).
+
+**Warning:**
+
+This image is about 12GB compressed and 35GB uncompressed. On
+my machine, which is an AMD 3900X with 32GB of RAM and a
+fast internet connection, it took about 20min to download
+the 12GB image and 9min to to extract!
+```
+$ time docker pull winksaville/ubuntu-cmake-ninja:18.04-full
+18.04-full: Pulling from winksaville/ubuntu-cmake-ninja
+5c939e3a4d10: Pull complete 
+c63719cdbe7a: Pull complete 
+19a861ea6baf: Pull complete 
+651c9d2d6c4f: Pull complete 
+8dd387d4677b: Pull complete 
+2277daa6bda3: Pull complete 
+44122f010d2c: Pull complete 
+27df41a4b327: Pull complete 
+6ff41af36e89: Pull complete 
+dd9bc71c4a21: Pull complete 
+Digest: sha256:10bf08709d1728ec0fa54d7bf60ab7a6c2ef50ba4cd2ab9cdeb73ed2d5880995
+Status: Downloaded newer image for winksaville/ubuntu-cmake-ninja:18.04-full
+docker.io/winksaville/ubuntu-cmake-ninja:18.04-full
+
+real	28m41.547s
+user	0m0.918s
+sys	0m0.448s
+
+$ docker images
+REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE
+winksaville/ubuntu-cmake-ninja   18.04-full          d3a084081e1c        6 hours ago         35GB
+```
 
 ## Build
 ```
